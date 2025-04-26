@@ -61,49 +61,22 @@ body {
     /* 例えば、コンテナ内のテキストを左寄せにしたい場合 */
     /* text-align: left; */
 
-    /* コンテナの背景色と角丸を削除 */
+    /* コンテナの背景色と角丸は削除された状態です */
     /* background-color: rgba(255, 255, 255, 0.7); */
     /* border-radius: 10px; */
 }
 
 /*========================================
-=            見出しの色設定 (グラデーション) =
+=            見出しの色設定 (削除)         =
 ========================================*/
 
-/* 見出しにグラデーションを適用するための共通スタイル */
-/* グラデーションを文字にクリップし、文字色を透明にします */
-.gradient-text {
-    /* 文字に背景画像を適用 */
-    background-size: 100%; /* グラデーションのサイズ */
-    background-repeat: repeat; /* グラデーションを繰り返す */
-    /* 背景を文字の形にクリップ (ベンダープレフィックスを含む) */
-    -webkit-background-clip: text;
-    background-clip: text;
-    /* 文字色を透明にする */
-    color: transparent;
-    /* アニメーションを付ける場合 */
-    /* animation: gradient-animation 5s ease infinite; */
-}
+/* 各見出しの個別色設定は削除されます */
+/* #title-main { ... } */
+/* #title-spla2 { ... } */
+/* #title-spla3 { ... } */
 
-/* スプラトゥーン チートコード (金色と銀色のグラデーション) */
-#title-main {
-    /* 金色と銀色のグラデーション - 銀の割合を増やし、より明るい銀色を使ってみます */
-    background-image: linear-gradient(to right, #FFD700, #C0C0C0 60%, #F5F5F5 100%); /* 金色から標準的な銀、そして明るい銀へ */
-}
-
-/* スプラトゥーン2 (ピンクと緑のグラデーション) */
-#title-spla2 {
-    /* スプラトゥーン2の代表的なインクカラーに近いピンクと緑のグラデーション */
-    background-image: linear-gradient(to right, #FE447D, #9AE528); /* 鮮やかなピンクと緑 */
-}
-
-/* スプラトゥーン3 (青と黄色のグラデーション) */
-#title-spla3 {
-    /* スプラトゥーン3の代表的なインクカラーに近い青と黄色のグラデーション */
-    background-image: linear-gradient(to right, #00A0E9, #FFD900); /* 鮮やかな青と黄色 */
-}
-
-/* 必要に応じてグラデーションの向き（to right, to bottom, 45degなど）や色（カラーコード）を調整してください */
+/* グラデーション適用用の共通スタイルも削除されます */
+/* .gradient-text { ... } */
 
 
 /* 見出し（h1, h2など）のその他のスタイル */
@@ -112,23 +85,8 @@ h1, h2 {
     /* font-family: 'Splatfont', sans-serif; */ /* 見出しだけ別のフォントにしたい場合など */
     /* margin-top: 20px; */
     /* margin-bottom: 10px; */
-    /* color: #333; */ /* グラデーションを使う場合は文字色は透明になるので、ここで色を指定しても無効です */
+    /* color: #333; */ /* 必要であればここで見出し全体の基本色を指定できます */
 }
-
-/* 各グラデーション見出しに共通のスタイルクラスを適用 */
-#title-main,
-#title-spla2,
-#title-spla3 {
-    /* グラデーションを適用したい見出しに .gradient-text クラスのスタイルを適用 */
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    /* 見やすさのために、文字に白い縁取りなどを追加することも検討できます */
-    /* text-shadow: 1px 1px 0px rgba(255,255,255,0.8); */
-}
-
 
 /* ダウンロードリンクのスタイル */
 h2 a {
