@@ -87,8 +87,8 @@ body {
 
 /* スプラトゥーン チートコード (金色と銀色のグラデーション) */
 #title-main {
-    /* 金色と銀色のグラデーション - 銀の割合を増やしてみます */
-    background-image: linear-gradient(to right, #FFD700, #FFD700 30%, #C0C0C0 70%, #C0C0C0 100%); /* 金色から銀色へ、銀の領域を広げてみました */
+    /* 金色と銀色のグラデーション - 銀の割合を増やし、より明るい銀色を使ってみます */
+    background-image: linear-gradient(to right, #FFD700, #C0C0C0 60%, #F5F5F5 100%); /* 金色から標準的な銀、そして明るい銀へ */
 }
 
 /* スプラトゥーン2 (ピンクと緑のグラデーション) */
@@ -103,7 +103,7 @@ body {
     background-image: linear-gradient(to right, #00A0E9, #FFD900); /* 鮮やかな青と黄色 */
 }
 
-/* 必要に応じてグラデーションの向き（to right, to bottom, 45degなど）を調整してください */
+/* 必要に応じてグラデーションの向き（to right, to bottom, 45degなど）や色（カラーコード）を調整してください */
 
 
 /* 見出し（h1, h2など）のその他のスタイル */
