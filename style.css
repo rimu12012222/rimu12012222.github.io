@@ -87,14 +87,14 @@ body {
 
 /* スプラトゥーン チートコード (金色と銀色のグラデーション) */
 #title-main {
-    /* スプラトゥーン風の金色と銀色に近いグラデーション */
-    background-image: linear-gradient(to right, #FFC000, #E0E0E0); /* より鮮やかな金色と明るい銀色 */
+    /* 金色と銀色のグラデーション - 銀の割合を増やしてみます */
+    background-image: linear-gradient(to right, #FFD700, #FFD700 30%, #C0C0C0 70%, #C0C0C0 100%); /* 金色から銀色へ、銀の領域を広げてみました */
 }
 
 /* スプラトゥーン2 (ピンクと緑のグラデーション) */
 #title-spla2 {
     /* スプラトゥーン2の代表的なインクカラーに近いピンクと緑のグラデーション */
-    background-image: linear-gradient(to right, #F73E8E, #76EE00); /* 鮮やかなピンクと緑 */
+    background-image: linear-gradient(to right, #FE447D, #9AE528); /* 鮮やかなピンクと緑 */
 }
 
 /* スプラトゥーン3 (青と黄色のグラデーション) */
@@ -120,12 +120,13 @@ h1, h2 {
 #title-spla2,
 #title-spla3 {
     /* グラデーションを適用したい見出しに .gradient-text クラスのスタイルを適用 */
-    /* ここに .gradient-text の中身を直接書いても良いですが、共通化しておくと管理しやすいです */
     background-size: 100%;
     background-repeat: repeat;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* 見やすさのために、文字に白い縁取りなどを追加することも検討できます */
+    /* text-shadow: 1px 1px 0px rgba(255,255,255,0.8); */
 }
 
 
