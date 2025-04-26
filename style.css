@@ -1,5 +1,26 @@
 /* style.css */
 
+/*========================================
+=            カスタムフォントの定義           =
+========================================*/
+
+@font-face {
+    font-family: 'Splatfont'; /* ← フォント名を 'Splatfont' に設定 */
+    src: url('font/splatfont.ttf') format('truetype'); /* ← 指定されたパスとファイル名 */
+    /* 他の形式（woff2, woffなど）もあればここに追加 */
+    /*
+    src: url('font/splatfont.woff2') format('woff2'),
+         url('font/splatfont.woff') format('woff'),
+         url('font/splatfont.ttf') format('truetype');
+    */
+    font-weight: normal; /* フォントの太さ */
+    font-style: normal;  /* フォントのスタイル */
+}
+
+/*========================================
+=            全体設定            =
+========================================*/
+
 /* bodyタグ全体の設定 */
 body {
     /* ブラウザのデフォルトマージンをリセット */
@@ -8,8 +29,10 @@ body {
     /* body内のテキストやインライン要素（画像など）を中央寄せ */
     /* これにより、コンテナ内のテキストやインライン要素もデフォルトで中央寄せになります */
     text-align: center;
-    /* サイト全体のフォントや背景色などもここに設定できます */
-    /* font-family: sans-serif; */
+    /* サイト全体のフォントを設定 */
+    font-family: 'Splatfont', sans-serif; /* ← 定義した 'Splatfont' を第一候補に指定 */
+
+    /* サイト全体の背景色などもここに設定できます */
     /* background-color: #f4f4f4; */
 }
 
@@ -25,7 +48,6 @@ body {
 
     /* コンテナ内のコンテンツと左右の端に余白を追加 */
     /* 画面幅が狭いときにコンテンツが端に張り付くのを防ぎます */
-    /* text-align: center; がbodyに設定されているため、paddingがないとテキストが左右ギリギリになります */
     padding: 20px; /* 上下左右に20ピクセルの余白。必要に応じて調整してください */
 
     /* bodyの text-align: center; を引き継ぎたくない場合は、ここでtext-alignを上書き */
@@ -37,6 +59,7 @@ body {
 /* bodyに text-align: center; を指定しているので、見出しのテキストは中央寄せされます */
 /* 見た目の調整が必要であればここに追記 */
 h1, h2 {
+    /* font-family: 'Splatfont', sans-serif; */ /* 見出しだけ別のフォントにしたい場合など */
     /* margin-top: 20px; */
     /* margin-bottom: 10px; */
     /* color: #333; */
@@ -60,6 +83,7 @@ p {
     margin-top: 50px; /* HTMLから移動 */
     /* color: #666; */
     /* font-size: 0.9em; */
+    /* font-family: 'Splatfont', sans-serif; */ /* フッターだけ別のフォントにしたい場合など */
 }
 
 
