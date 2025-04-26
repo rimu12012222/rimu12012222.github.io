@@ -38,6 +38,9 @@ body {
     background-repeat: no-repeat; /* 画像を繰り返さない */
     background-position: center center; /* 画像を中央に配置 */
     background-attachment: fixed; /* スクロールしても画像は固定 */
+
+    /* 背景が画像になるので、bodyのbackground-colorは通常不要になります */
+    /* background-color: #f4f4f4; */
 }
 
 /* コンテンツを囲むためのコンテナクラス */
@@ -58,8 +61,9 @@ body {
     /* 例えば、コンテナ内のテキストを左寄せにしたい場合 */
     /* text-align: left; */
 
-    /* 背景画像の上にコンテンツを載せるため、コンテンツ部分に背景色や透過度を設定することがよくあります */
-    /* background-color: rgba(255, 255, 255, 0.7); */ /* 例: 白の半透明 */
+    /* ★背景画像の上にコンテンツを載せるため、コンテンツ部分に半透明の背景色を設定★ */
+    background-color: rgba(255, 255, 255, 0.8); /* 白の半透明の例 (rgbaの最後の数値が透明度 0:完全透明 - 1:完全不透明) */
+    border-radius: 10px; /* 角を丸くする場合 */
 }
 
 /* 見出し（h1, h2など）のスタイル */
@@ -69,13 +73,13 @@ h1, h2 {
     /* font-family: 'Splatfont', sans-serif; */ /* 見出しだけ別のフォントにしたい場合など */
     /* margin-top: 20px; */
     /* margin-bottom: 10px; */
-    /* color: #333; */
+    color: #333; /* 文字色を設定すると見やすくなることがあります */
 }
 
 /* ダウンロードリンクのスタイル */
 h2 a {
     /* text-decoration: none; */
-    /* color: #007bff; */
+    /* color: #007bff; */ /* リンクの色を設定すると見やすくなることがあります */
 }
 
 /* 協力者/関連リンクのリストスタイル */
@@ -88,7 +92,7 @@ h2 a {
 p {
     text-align: center; /* HTMLから移動 */
     margin-top: 50px; /* HTMLから移動 */
-    /* color: #666; */
+    color: #666; /* 文字色を設定すると見やすくなることがあります */
     /* font-size: 0.9em; */
     /* font-family: 'Splatfont', sans-serif; */ /* フッターだけ別のフォントにしたい場合など */
 }
