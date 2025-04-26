@@ -13,8 +13,7 @@ body {
     /* background-color: #f4f4f4; */
 
     /* ★確認用：一時的に背景色を追加★ */
-    /* これが適用されるか確認してください。適用されればCSSファイルは読み込めています。 */
-    background-color: yellow !important; /* 分かりやすい色と !important を付けて強制適用 */
+    /* background-color: yellow !important; */ /* この行を削除 */
 }
 
 /* コンテンツを囲むためのコンテナクラス */
@@ -37,8 +36,8 @@ body {
     /* text-align: left; */
 
     /* ★★★ 中央寄せの確認のための一時的なスタイル ★★★ */
-    /* background-color: #ffdddd; */ /* ピンクの背景色指定を削除 */
-    /* border: 1px solid blue; */ /* 青い線指定を削除 */
+    /* background-color: #ffdddd; */ /* ピンクの背景色指定は削除済み */
+    /* border: 1px solid blue; */ /* 青い線指定は削除済み */
     /* ★★★ ここまで ★★★ */
 }
 
