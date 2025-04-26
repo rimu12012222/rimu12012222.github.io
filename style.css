@@ -61,7 +61,7 @@ body {
     /* 例えば、コンテナ内のテキストを左寄せにしたい場合 */
     /* text-align: left; */
 
-    /* ★コンテナの背景色と角丸を削除★ */
+    /* コンテナの背景色と角丸を削除 */
     /* background-color: rgba(255, 255, 255, 0.7); */
     /* border-radius: 10px; */
 }
@@ -87,20 +87,20 @@ body {
 
 /* スプラトゥーン チートコード (金色と銀色のグラデーション) */
 #title-main {
-    /* 金色と銀色のグラデーションを設定 */
-    background-image: linear-gradient(to right, #FFD700, #C0C0C0); /* 金色から銀色へのグラデーション */
+    /* スプラトゥーン風の金色と銀色に近いグラデーション */
+    background-image: linear-gradient(to right, #FFC000, #E0E0E0); /* より鮮やかな金色と明るい銀色 */
 }
 
 /* スプラトゥーン2 (ピンクと緑のグラデーション) */
 #title-spla2 {
-    /* スプラトゥーン2風ピンクと緑のグラデーション */
-    background-image: linear-gradient(to right, #FF69B4, #32CD32); /* ピンクからライムグリーン */
+    /* スプラトゥーン2の代表的なインクカラーに近いピンクと緑のグラデーション */
+    background-image: linear-gradient(to right, #F73E8E, #76EE00); /* 鮮やかなピンクと緑 */
 }
 
 /* スプラトゥーン3 (青と黄色のグラデーション) */
 #title-spla3 {
-    /* スプラトゥーン3風青と黄色のグラデーション */
-    background-image: linear-gradient(to right, #00BFFF, #FFFF00); /* ディープスカイブルーから黄色 */
+    /* スプラトゥーン3の代表的なインクカラーに近い青と黄色のグラデーション */
+    background-image: linear-gradient(to right, #00A0E9, #FFD900); /* 鮮やかな青と黄色 */
 }
 
 /* 必要に応じてグラデーションの向き（to right, to bottom, 45degなど）を調整してください */
