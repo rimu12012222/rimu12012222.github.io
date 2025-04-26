@@ -6,12 +6,12 @@
 
 @font-face {
     font-family: 'Splatfont'; /* ← フォント名を 'Splatfont' に設定 */
-    src: url('font/splatfont.ttf') format('truetype'); /* ← 指定されたパスとファイル名 */
+    src: url('font/Splatfont.ttf') format('truetype'); /* ← 指定されたパスとファイル名 */
     /* 他の形式（woff2, woffなど）もあればここに追加 */
     /*
-    src: url('font/splatfont.woff2') format('woff2'),
-         url('font/splatfont.woff') format('woff'),
-         url('font/splatfont.ttf') format('truetype');
+    src: url('font/Splatfont.woff2') format('woff2'),
+         url('font/Splatfont.woff') format('woff'),
+         url('font/Splatfont.ttf') format('truetype');
     */
     font-weight: normal; /* フォントの太さ */
     font-style: normal;  /* フォントのスタイル */
