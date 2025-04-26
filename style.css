@@ -11,9 +11,6 @@ body {
     /* サイト全体のフォントや背景色などもここに設定できます */
     /* font-family: sans-serif; */
     /* background-color: #f4f4f4; */
-
-    /* ★確認用：一時的に背景色を追加★ */
-    /* background-color: yellow !important; */ /* この行を削除 */
 }
 
 /* コンテンツを囲むためのコンテナクラス */
@@ -34,11 +31,6 @@ body {
     /* bodyの text-align: center; を引き継ぎたくない場合は、ここでtext-alignを上書き */
     /* 例えば、コンテナ内のテキストを左寄せにしたい場合 */
     /* text-align: left; */
-
-    /* ★★★ 中央寄せの確認のための一時的なスタイル ★★★ */
-    /* background-color: #ffdddd; */ /* ピンクの背景色指定は削除済み */
-    /* border: 1px solid blue; */ /* 青い線指定は削除済み */
-    /* ★★★ ここまで ★★★ */
 }
 
 /* 見出し（h1, h2など）のスタイル */
