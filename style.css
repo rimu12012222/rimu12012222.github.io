@@ -61,33 +61,49 @@ body {
     /* 例えば、コンテナ内のテキストを左寄せにしたい場合 */
     /* text-align: left; */
 
-    /* 背景画像の上にコンテンツを載せるため、コンテンツ部分に背景色や透過度を設定することがよくあります */
-    background-color: rgba(255, 255, 255, 0.7); /* 例: 白の半透明。見やすさのために残しておくと良いかも */
-    border-radius: 10px; /* 角を丸くする場合 */
+    /* ★コンテナの背景色と角丸を削除★ */
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    /* border-radius: 10px; */
 }
 
 /*========================================
-=            見出しの色設定           =
+=            見出しの色設定 (グラデーション) =
 ========================================*/
 
-/* スプラトゥーン チートコード (金色) */
+/* 見出しにグラデーションを適用するための共通スタイル */
+/* グラデーションを文字にクリップし、文字色を透明にします */
+.gradient-text {
+    /* 文字に背景画像を適用 */
+    background-size: 100%; /* グラデーションのサイズ */
+    background-repeat: repeat; /* グラデーションを繰り返す */
+    /* 背景を文字の形にクリップ (ベンダープレフィックスを含む) */
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* 文字色を透明にする */
+    color: transparent;
+    /* アニメーションを付ける場合 */
+    /* animation: gradient-animation 5s ease infinite; */
+}
+
+/* スプラトゥーン チートコード (金色と銀色のグラデーション) */
 #title-main {
-    color: #FFD700; /* 金色の例 */
-    /* 必要であれば文字に縁取り（text-shadow）などを追加して強調できます */
-    /* text-shadow: 2px 2px 0px #000; */ /* 黒の縁取りの例 */
+    /* 金色と銀色のグラデーションを設定 */
+    background-image: linear-gradient(to right, #FFD700, #C0C0C0); /* 金色から銀色へのグラデーション */
 }
 
-/* スプラトゥーン2 (ピンク) */
+/* スプラトゥーン2 (ピンクと緑のグラデーション) */
 #title-spla2 {
-    color: #FF69B4; /* ホットピンクの例 */
-    /* text-shadow: 2px 2px 0px #000; */ /* 黒の縁取りの例 */
+    /* スプラトゥーン2風ピンクと緑のグラデーション */
+    background-image: linear-gradient(to right, #FF69B4, #32CD32); /* ピンクからライムグリーン */
 }
 
-/* スプラトゥーン3 (青) */
+/* スプラトゥーン3 (青と黄色のグラデーション) */
 #title-spla3 {
-    color: #00BFFF; /* ディープスカイブルーの例 */
-    /* text-shadow: 2px 2px 0px #000; */ /* 黒の縁取りの例 */
+    /* スプラトゥーン3風青と黄色のグラデーション */
+    background-image: linear-gradient(to right, #00BFFF, #FFFF00); /* ディープスカイブルーから黄色 */
 }
+
+/* 必要に応じてグラデーションの向き（to right, to bottom, 45degなど）を調整してください */
 
 
 /* 見出し（h1, h2など）のその他のスタイル */
@@ -96,13 +112,27 @@ h1, h2 {
     /* font-family: 'Splatfont', sans-serif; */ /* 見出しだけ別のフォントにしたい場合など */
     /* margin-top: 20px; */
     /* margin-bottom: 10px; */
-    /* color: #333; */ /* ここでまとめて文字色を指定すると、上の個別指定が優先されます */
+    /* color: #333; */ /* グラデーションを使う場合は文字色は透明になるので、ここで色を指定しても無効です */
 }
+
+/* 各グラデーション見出しに共通のスタイルクラスを適用 */
+#title-main,
+#title-spla2,
+#title-spla3 {
+    /* グラデーションを適用したい見出しに .gradient-text クラスのスタイルを適用 */
+    /* ここに .gradient-text の中身を直接書いても良いですが、共通化しておくと管理しやすいです */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 
 /* ダウンロードリンクのスタイル */
 h2 a {
     /* text-decoration: none; */
-    /* color: #007bff; */ /* リンクの色を設定すると見やすくなることがあります */
+    /* color: #007bff; */ /* リンクの色 */
 }
 
 /* 協力者/関連リンクのリストスタイル */
@@ -115,7 +145,7 @@ h2 a {
 p {
     text-align: center; /* HTMLから移動 */
     margin-top: 50px; /* HTMLから移動 */
-    /* color: #666; */ /* 文字色を設定すると見やすくなることがあります */
+    /* color: #666; */ /* 文字色 */
     /* font-size: 0.9em; */
     /* font-family: 'Splatfont', sans-serif; */ /* フッターだけ別のフォントにしたい場合など */
 }
