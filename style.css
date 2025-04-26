@@ -32,8 +32,12 @@ body {
     /* サイト全体のフォントを設定 */
     font-family: 'Splatfont', sans-serif; /* ← 定義した 'Splatfont' を第一候補に指定 */
 
-    /* サイト全体の背景色などもここに設定できます */
-    /* background-color: #f4f4f4; */
+    /* サイト全体の背景画像を設定 */
+    background-image: url('images/background.jpg'); /* ← ★あなたの背景画像ファイルへのパスを指定してください★ */
+    background-size: cover; /* 画面全体を覆うように画像を拡大縮小 */
+    background-repeat: no-repeat; /* 画像を繰り返さない */
+    background-position: center center; /* 画像を中央に配置 */
+    background-attachment: fixed; /* スクロールしても画像は固定 */
 }
 
 /* コンテンツを囲むためのコンテナクラス */
@@ -53,6 +57,9 @@ body {
     /* bodyの text-align: center; を引き継ぎたくない場合は、ここでtext-alignを上書き */
     /* 例えば、コンテナ内のテキストを左寄せにしたい場合 */
     /* text-align: left; */
+
+    /* 背景画像の上にコンテンツを載せるため、コンテンツ部分に背景色や透過度を設定することがよくあります */
+    /* background-color: rgba(255, 255, 255, 0.7); */ /* 例: 白の半透明 */
 }
 
 /* 見出し（h1, h2など）のスタイル */
