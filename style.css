@@ -43,6 +43,11 @@ body {
     /* background-color: #f4f4f4; */
 }
 
+/* オーディオ要素を非表示にする */
+audio {
+    display: none;
+}
+
 /* コンテンツを囲むためのコンテナクラス */
 .container {
     /* コンテンツの最大幅を設定（PCなどの広い画面用）*/
