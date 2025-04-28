@@ -11,7 +11,6 @@
     <meta property="og:image" content="image/ogp-image.png"/> <meta property="og:site_name" content="splatoon2 3 cheat-code"/>
     <meta property="og:description" content="デザインを昔あったたかはるさんのサイトに勝手に寄せさせてもらってます、感謝。"/>
 
-    <link rel = "stylesheet" type = "text/css" href = "font.css" />
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.png"/>
     <link rel="apple-touch-icon" href="image/apple-touch-icon.png"/>
@@ -21,7 +20,7 @@
     <div class="container">
         <h1>スプラトゥーン チートコード</h1>
 
-        <audio control src="music/bgm.mp3" autoplay loop></audio>
+        <audio id="myAudio" src="music/bgm.mp3" loop></audio>
 
         <h1>スプラトゥーン2</h1>
         <h2>・5.5.1 <a href="pchtxt/5.5.1.pchtxt" target="_blank">ダウンロード</a></h2>
@@ -35,5 +34,17 @@
         <h2>・<a href="https://x.com/xv4dvr7?t=-zlaYxkZv2lSU3AOrePTRA&s=09" target="_blank">xxy73</a></h2>
 
     </div>
+
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('myAudio');
+            audio.play().catch(function(error) {
+                // Autoplay was prevented. Show a user interface to allow the user to manually start the playback.
+                console.log('Autoplay prevented:', error);
+                // Optionally, display a play button for the user to click
+            });
+        };
+    </script>
+
 </body>
 </html>
