@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>スプラトゥーン チートコード</title>
 
-    <meta property="og:title" content="spl23 cheat code">
+    <meta property="og:title" content="spl23">
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://rimu12012222.github.io/spl23.github.io/"/>
     <meta property="og:image" content="image/ogp-image.png"/> <meta property="og:site_name" content="splatoon2 3 cheat-code"/>
@@ -20,7 +20,7 @@
     <div class="container">
         <h1>スプラトゥーン チートコード</h1>
 
-        <audio control autoplay loop src="music/bgm.mp3"></audio>
+        <audio id="bgm" src="music/bgm.mp3" loop></audio>
 
         <h1>スプラトゥーン2</h1>
         <h2>・5.5.1 <a href="pchtxt/5.5.1.pchtxt" target="_blank">ダウンロード</a></h2>
@@ -34,6 +34,17 @@
         <h2>・<a href="https://x.com/xv4dvr7?t=-zlaYxkZv2lSU3AOrePTRA&s=09" target="_blank">xxy73</a></h2>
 
     </div>
+
+    <script>
+        // ユーザーがページ上で最初にクリックしたときに音楽を再生する
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('bgm');
+            audio.play().catch(function(error) {
+                // 自動再生がブロックされた場合のエラーハンドリング
+                console.log('Playback prevented:', error);
+            });
+        }, { once: true }); // イベントリスナーは最初の1回だけ実行する
+    </script>
 
 </body>
 </html>
