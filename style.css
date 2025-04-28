@@ -17,6 +17,13 @@
     font-style: normal;  /* フォントのスタイル */
 }
 
+/* font.css から移植したフォント定義 */
+@font-face {
+  font-family: 'tare';
+  src: url('font/Splatfont.ttf') format('truetype'); /* Splatfont.ttf を使用するように調整 */
+}
+
+
 /*========================================
 =            全体設定            =
 ========================================*/
@@ -42,6 +49,15 @@ body {
     /* 背景が画像になるので、bodyのbackground-colorは通常不要になります */
     /* background-color: #f4f4f4; */
 }
+
+/* font.css から移植したbodyのダークモード設定 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #222222;
+    color: #fff;
+  }
+}
+
 
 /* オーディオ要素を非表示にするスタイルを削除 */
 /* audio {
@@ -93,10 +109,28 @@ h1, h2 {
     /* color: #333; */ /* 必要であればここで見出し全体の基本色を指定できます */
 }
 
+/* font.css から移植したh1, h2のスタイル */
+h1 {
+  font-family: 'tare';
+  text-align: center;
+}
+h2 {
+  font-family: 'tare';
+  text-align: center;
+}
+
+
 /* ダウンロードリンクのスタイル */
 h2 a {
     /* text-decoration: none; */
     /* color: #007bff; */ /* リンクの色 */
+}
+
+/* font.css から移植したaタグのスタイル */
+ a {
+  font-family: 'tare';
+  text-align: center;
+  color: #0000ff;
 }
 
 /* 協力者/関連リンクのリストスタイル */
@@ -112,6 +146,17 @@ p {
     /* color: #666; */ /* 文字色 */
     /* font-size: 0.9em; */
     /* font-family: 'Splatfont', sans-serif; */ /* フッターだけ別のフォントにしたい場合など */
+}
+
+/* font.css から移植したscriptタグのスタイル */
+script {
+  font-family: 'tare';
+  text-align: center;
+}
+
+/* font.css から移植した.hogeクラスのスタイル */
+.hoge {
+  text-align: center;
 }
 
 
