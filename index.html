@@ -30,7 +30,7 @@
             background-attachment: fixed; /* スクロールしても画像は固定 */
         }
 
-        /* 背景画像を薄く見せるための半透明オーバーレイ */
+        /* 背景画像を調整するための半透明オーバーレイ */
         body::before {
             content: ''; /* 疑似要素には content が必要 */
             position: absolute; /* bodyを基準に絶対配置 */
@@ -38,36 +38,35 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* 白の半透明色でオーバーレイをかけます - もっと薄く（透明度を低く） */
-            background-color: rgba(255, 255, 255, 0.1); /* 例: 白を10%の透明度で重ねる */
+            /* 白の半透明色でオーバーレイをかけます - 見え方を調整 */
+            background-color: rgba(255, 255, 255, 0.9); /* 白を90%の透明度で重ねる（背景は10%だけ見える） */
             z-index: 1; /* クリックを促す文字より手前に表示（ただし文字はさらにz-indexを高くする） */
         }
 
 
-        /* font.css から tare フォントの定義を移植 */
+        /* tare フォントの定義 (FOT-RowdyStd-EB.ttf を使用) を使用 */
         @font-face {
           font-family: 'tare';
-          src: url('font/Splatfont.ttf') format('truetype'); /* ★あなたのフォントファイルへの正しいパスを指定してください★ */
+          src: url('font/FOT-RowdyStd-EB.ttf') format('truetype'); /* ★あなたの font/FOT-RowdyStd-EB.ttf ファイルへの正しいパスを指定してください★ */
         }
+
 
         /* クリックを促す文字のスタイル */
         .click-prompt {
             font-family: 'tare', sans-serif; /* tareフォントを使用 */
-            font-size: 3em; /* もっと小さく */
-            /* clickの色ももっと薄く */
-            color: #88ccff; /* 例: 明るく薄い水色 */
+            font-size: 3em; /* 文字サイズ */
+            color: #88ccff; /* 薄い水色 */
             text-align: center;
-            /* かくかく感を出しつつ、アウトラインを調整 */
-            text-shadow:
-                -1px -1px 0 #000, /* シャドウのオフセットを小さく */
-                 1px -1px 0 #000,
-                -1px  1px 0 #000,
-                 1px  1px 0 #000; /* シンプルな4方向シャドウ */
-            /* Webkit系ブラウザ向けのアウトライン */
-            -webkit-text-stroke: 1px #000;
-            text-stroke: 1px #000; /* 標準的なアウトライン（対応ブラウザのみ） */
-            position: relative; /* オーバーレイより手前に表示するために必要 */
-            z-index: 2; /* オーバーレイ (z-index: 1) より手前に表示 */
+            /* 外枠はなし */
+            /* text-shadow: ... */
+            /* -webkit-text-stroke: ... */
+            /* text-stroke: ... */
+
+            /* 文字の太さや凝縮はフォントファイル（FOT-RowdyStd-EB.ttf）のデザインに依存します */
+            /* font-weight: normal; */ /* tare自体のウェイトを使用 */
+
+            position: relative;
+            z-index: 2;
         }
 
     </style>
