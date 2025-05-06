@@ -53,6 +53,27 @@
         function handleInteraction(event) {
             tryPlayAudio();
         }
+
+        // アニメーション用のJavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.container');
+            if (container) {
+                // アニメーション対象の要素を選択 (h1, h2, a 要素)
+                const elementsToAnimate = container.querySelectorAll('h1, h2, a');
+
+                elementsToAnimate.forEach((element, index) => {
+                    // アニメーションの初期状態クラスを追加 (style.cssで定義)
+                    element.classList.add('animated-element');
+
+                    // 要素ごとに少しずつ遅延させてアニメーションを開始
+                    setTimeout(() => {
+                        // アニメーション後の最終状態クラスを追加 (style.cssで定義)
+                        element.classList.add('is-visible');
+                    }, index * 80); // 遅延時間は調整可能 (例: 80ms)
+                });
+            }
+        });
+
         // Attempt autoplay on page load using permission from previous page interaction
         tryPlayAudio();
         document.addEventListener('click', handleInteraction);
