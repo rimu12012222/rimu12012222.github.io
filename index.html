@@ -44,17 +44,22 @@
         }
 
 
-        /* tare フォントの定義 (FOT-RowdyStd-EB.ttf を使用) を使用 */
+        /* Sahitya-Regular.ttf フォントの定義 */
         @font-face {
-          font-family: 'tare';
-          src: url('font/FOT-RowdyStd-EB.ttf') format('truetype'); /* ★あなたの font/FOT-RowdyStd-EB.ttf ファイルへの正しいパスを指定してください★ */
+            font-family: 'SahityaRegular'; /* フォント名を 'SahityaRegular' に設定 */
+            /* ★ここに、あなたが持っている Sahitya-Regular.ttf のフォントファイルへのパスを指定してください★ */
+            src: url('font/Sahitya-Regular.ttf') format('truetype'); /* パスとフォーマットを設定 */
+            /* 複数の形式（woff2, woff, ttfなど）を指定すると、より多くのブラウザで表示できます */
+
+            font-weight: normal;
+            font-style: normal;
         }
 
 
         /* クリックを促す文字のスタイル */
         .click-prompt {
-            font-family: 'tare', sans-serif; /* tareフォントを使用 */
-            font-size: 3em; /* 文字サイズ */
+            font-family: 'SahityaRegular', sans-serif; /* SahityaRegular フォントを使用 */
+            font-size: 2.5em; /* 文字サイズ */
             color: #88ccff; /* 薄い水色 */
             text-align: center;
             /* 外枠はなし */
@@ -62,8 +67,8 @@
             /* -webkit-text-stroke: ... */
             /* text-stroke: ... */
 
-            /* 文字の太さや凝縮はフォントファイル（FOT-RowdyStd-EB.ttf）のデザインに依存します */
-            /* font-weight: normal; */ /* tare自体のウェイトを使用 */
+            /* 文字の太さや凝縮はフォントファイル（Sahitya-Regular.ttf）のデザインに依存します */
+            /* font-weight: normal; */ /* Sahitya-Regular自体のウェイトを使用 */
 
             position: relative;
             z-index: 2;
