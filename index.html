@@ -1,56 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>クリックして開始</title>
 
     <style>
+        /* body全体を使い、要素を中央に配置 */
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-            cursor: pointer;
-            user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            touch-action: manipulation;
-            position: relative;
+            display: flex; /* Flexboxを使って子要素を配置 */
+            justify-content: center; /* 水平方向の中央寄せ */
+            align-items: center; /* 垂直方向の中央寄せ */
+            min-height: 100vh; /* 画面の高さいっぱいにする */
+            background-color: #f0f0f0; /* 背景色（任意、画像が表示されない場合のFallback） */
+            cursor: pointer; /* クリック可能であることを示すカーソル */
+            user-select: none; /* テキスト選択を無効に（任意） */
+            -webkit-user-select: none; /* Safari対応 */
+            -ms-user-select: none; /* IE対応 */
+            touch-action: manipulation; /* タッチ操作の最適化 */
+            position: relative; /* ::before要素（オーバーレイ）の基準点とするために必要 */
+            /* overflow: hidden; */ /* 意図しないスクロールバーを非表示にしたい場合など */
 
-            background-image: url('images/background.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
+            /* ★メインページ（main.html）の背景スタイルを移植します★ */
+            background-image: url('images/background.jpg'); /* ← ここをあなたのメインページの背景画像への正しいパスに修正してください */
+            background-size: cover; /* 画面全体を覆うように画像を拡大縮小 */
+            background-repeat: no-repeat; /* 画像を繰り返さない */
+            background-position: center center; /* 画像を中央に配置 */
+            background-attachment: fixed; /* スクロールしても画像は固定 */
         }
 
+        /* 背景画像を調整するための半透明オーバーレイ */
         body::before {
-            content: '';
-            position: absolute;
+            content: ''; /* 疑似要素には content が必要 */
+            position: absolute; /* bodyを基準に絶対配置 */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            z-index: 1;
+            /* 白の半透明色でオーバーレイをかけます - 見え方を調整 */
+            background-color: rgba(255, 255, 255, 0.9); /* 白を90%の透明度で重ねる（背景は10%だけ見える） */
+            z-index: 1; /* クリックを促す文字より手前に表示（ただし文字はさらにz-indexを高くする） */
         }
 
+
+        /* Sahitya-Regular.ttf フォントの定義 */
         @font-face {
-            font-family: 'SahityaRegular';
-            src: url('font/Sahitya-Regular.ttf') format('truetype');
+            font-family: 'SahityaRegular'; /* フォント名を 'SahityaRegular' に設定 */
+            /* ★ここに、あなたが持っている Sahitya-Regular.ttf のフォントファイルへのパスを指定してください★ */
+            src: url('font/Sahitya-Regular.ttf') format('truetype'); /* パスとフォーマットを設定 */
+            /* 複数の形式（woff2, woff, ttfなど）を指定すると、より多くのブラウザで表示できます */
+
             font-weight: normal;
             font-style: normal;
         }
 
+
+        /* クリックを促す文字のスタイル */
         .click-prompt {
-            font-family: 'SahityaRegular', sans-serif;
-            font-size: 2.5em;
-            color: #88ccff;
+            font-family: 'SahityaRegular', sans-serif; /* SahityaRegular フォントを使用 */
+            font-size: 2.5em; /* 文字サイズ */
+            color: #88ccff; /* 薄い水色 */
             text-align: center;
+            /* 外枠はなし */
+            /* text-shadow: ... */
+            /* -webkit-text-stroke: ... */
+            /* text-stroke: ... */
+
+            /* 文字の太さや凝縮はフォントファイル（Sahitya-Regular.ttf）のデザインに依存します */
+            /* font-weight: normal; */ /* Sahitya-Regular自体のウェイトを使用 */
+
             position: relative;
             z-index: 2;
         }
@@ -64,22 +84,45 @@
     </div>
 
     <script>
+        // メインページへの遷移を行う関数
         function goToMainPage() {
-            window.location.href = 'main.html';
+            console.log('Redirecting to main page.');
+             // メインのページファイル名にリダイレクト
+            window.location.href = 'main.html'; // main.html にリダイレクト
+
+             // イベントリスナーを一度削除して、複数回呼ばれないようにする
             removeInteractionListeners();
         }
 
+         // イベントリスナーを削除する関数
         function removeInteractionListeners() {
             document.body.removeEventListener('click', handleInteraction);
             document.body.removeEventListener('touchstart', handleInteraction);
+            console.log('Interaction listeners removed from body.');
         }
 
+        // クリックまたはタッチが発生したときに呼び出される関数
         function handleInteraction(event) {
-            goToMainPage();
+             console.log('Interaction detected:', event.type);
+
+             // ここで preventDefault() を呼び出すと、スマホでのタップ時のハイライトなどを防げますが、
+             // 意図しない副作用がある場合もあるため、ここでは呼び出しません。
+             // event.preventDefault(); // 必要であればコメント解除して試してみてください
+
+             // ユーザー操作を検知したら、メインページ遷移処理に進む
+             goToMainPage();
         }
 
-        document.body.addEventListener('click', handleInteraction);
-        document.body.addEventListener('touchstart', handleInteraction);
+
+        // ページ上のユーザーインタラクション (クリックまたはタッチ) を検知するためのイベントリスナーを body に追加
+        // これらのイベントのいずれかが最初に発生したときにhandleInteractionが実行される
+        // body 要素にリスナーを追加することで、クリック待ち画面のどこをタップ・クリックしても反応するようにします
+        document.body.addEventListener('click', handleInteraction); // クリックイベント (PCなど)
+        document.body.addEventListener('touchstart', handleInteraction); // タッチイベント (スマートフォンなど)
+
+        console.log('Interaction listeners added to body.');
+
+
     </script>
 
 </body>
