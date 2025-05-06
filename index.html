@@ -56,7 +56,7 @@
                 }).catch(function(error) {
                     // 自動再生がブロックされた場合などのエラー処理
                     console.log('Audio playback prevented or failed:', error);
-                    // エラーが発生しても、audioPlayedはtrueにならないため、他のイベントでの再生を試みる
+                    // エラーが発生しても、audioPlayedはtrueにならないため、他のイベントでの再生を試みる可能性がある
                 });
             }
         }
@@ -64,16 +64,18 @@
         // 音楽再生トリガーとなるイベントリスナーを削除する関数
         function removeInteractionListeners() {
             document.body.removeEventListener('click', tryPlayAudio);
-            document.body.removeEventListener('scroll', tryPlayAudio);
-            document.body.removeEventListener('touchstart', tryPlayAudio); // スマートフォンなどのタッチ操作
-            document.body.removeEventListener('mousemove', tryPlayAudio); // PCでのマウス移動
-            // 必要に応じてここに追加した他のイベントも削除
+            // スクロールイベントリスナーは window から削除
+            window.removeEventListener('scroll', tryPlayAudio);
+            document.body.removeEventListener('touchstart', tryPlayAudio);
+            document.body.removeEventListener('mousemove', tryPlayAudio);
+             // 必要に応じてここに追加した他のイベントも削除
         }
 
         // ページ上の様々なユーザーインタラクションを検知するためのイベントリスナーを追加
         // これらのイベントのいずれかが最初に発生したときにtryPlayAudioが実行される
         document.body.addEventListener('click', tryPlayAudio);
-        document.body.addEventListener('scroll', tryPlayAudio);
+        // スクロールイベントは body ではなく window に対してリッスンするのが一般的です
+        window.addEventListener('scroll', tryPlayAudio);
         document.body.addEventListener('touchstart', tryPlayAudio);
         document.body.addEventListener('mousemove', tryPlayAudio);
         // 他にもユーザーインタラクションとなりうるイベントを追加可能ですが、過剰な検知はパフォーマンスに影響する場合もあります。
