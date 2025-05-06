@@ -13,36 +13,66 @@
             justify-content: center; /* 水平方向の中央寄せ */
             align-items: center; /* 垂直方向の中央寄せ */
             min-height: 100vh; /* 画面の高さいっぱいにする */
-            background-color: #f0f0f0; /* 背景色（任意） */
+            background-color: #f0f0f0; /* 背景色（任意、画像が表示されない場合のFallback） */
             cursor: pointer; /* クリック可能であることを示すカーソル */
             user-select: none; /* テキスト選択を無効に（任意） */
             -webkit-user-select: none; /* Safari対応 */
             -ms-user-select: none; /* IE対応 */
             touch-action: manipulation; /* タッチ操作の最適化 */
+            position: relative; /* ::before要素（オーバーレイ）の基準点とするために必要 */
+            /* overflow: hidden; */ /* 意図しないスクロールバーを非表示にしたい場合など */
+
+            /* ★メインページ（main.html）の背景スタイルを移植します★ */
+            background-image: url('images/background.jpg'); /* ← ここをあなたのメインページの背景画像への正しいパスに修正してください */
+            background-size: cover; /* 画面全体を覆うように画像を拡大縮小 */
+            background-repeat: no-repeat; /* 画像を繰り返さない */
+            background-position: center center; /* 画像を中央に配置 */
+            background-attachment: fixed; /* スクロールしても画像は固定 */
         }
+
+        /* 背景画像を薄く見せるための半透明オーバーレイ */
+        body::before {
+            content: ''; /* 疑似要素には content が必要 */
+            position: absolute; /* bodyを基準に絶対配置 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 白の半透明色でオーバーレイをかけます */
+            /* rgba(赤, 緑, 青, 透明度) 透明度は0（完全透明）から1（完全不透明） */
+            background-color: rgba(255, 255, 255, 0.7); /* 例: 白を70%の透明度で重ねる */
+            z-index: 1; /* クリックを促す文字より手前に表示（ただし文字はさらにz-indexを高くする） */
+        }
+
 
         /* font.css から tare フォントの定義を移植 */
         @font-face {
           font-family: 'tare';
-          src: url('font/Splatfont.ttf') format('truetype'); /* ★あなたのフォントファイルへのパスを適切に指定してください★ */
+          src: url('font/Splatfont.ttf') format('truetype'); /* ★あなたのフォントファイルへの正しいパスを指定してください★ */
         }
 
         /* クリックを促す文字のスタイル */
         .click-prompt {
             font-family: 'tare', sans-serif; /* tareフォントを使用 */
-            font-size: 4em; /* 文字サイズを大きく */
+            font-size: 5em; /* 文字サイズを少し大きく */
             color: #00aaff; /* 水色 */
             text-align: center;
             /* かくかくした文字の感じを出すためのスタイル（テキストシャドウとアウトライン風） */
             text-shadow:
-                -2px -2px 0 #000,
-                 2px -2px 0 #000,
-                -2px  2px 0 #000,
-                 2px  2px 0 #000; /* 太いアウトライン風のシャドウ */
-            /* Webkit系ブラウザ向けのアウトライン */
-            -webkit-text-stroke: 1px #000;
-            text-stroke: 1px #000; /* 標準的なアウトライン (対応ブラウザのみ) */
+                -3px -3px 0 #000, /* シャドウのオフセットを大きくして太く */
+                 3px -3px 0 #000,
+                -3px  3px 0 #000,
+                 3px  3px 0 #000,
+                -4px 0 0 #000, /* 中央の太さを出すための追加シャドウ */
+                 4px 0 0 #000,
+                 0 -4px 0 #000,
+                 0  4px 0 #000;
+            /* Webkit系ブラウザ向けのアウトライン（少し太く） */
+            -webkit-text-stroke: 2px #000;
+            text-stroke: 2px #000; /* 標準的なアウトライン（対応ブラウザのみ、少し太く） */
             color: #00aaff; /* アウトラインと併用する場合の文字色 */
+            position: relative; /* オーバーレイより手前に表示するために必要 */
+            z-index: 2; /* オーバーレイ (z-index: 1) より手前に表示 */
         }
 
     </style>
@@ -50,7 +80,7 @@
 <body>
 
     <div class="click-prompt">
-        クリック
+        click
     </div>
 
     <script>
