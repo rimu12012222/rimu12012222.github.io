@@ -46,40 +46,47 @@
         function tryPlayAudio() {
             // まだ再生されていない場合のみ実行
             if (!audioPlayed) {
+                console.log('Attempting to play audio...'); // 再生試行前にログ
                 var audio = document.getElementById('bgm');
                 audio.play().then(function() {
                     // 再生に成功した場合
                     audioPlayed = true; // フラグを立てる
-                    console.log('Audio playback started.');
+                    console.log('Audio playback started successfully.'); // 再生成功時のログ
                     // 再生開始に成功したら、不要になったイベントリスナーを全て削除する
                     removeInteractionListeners();
                 }).catch(function(error) {
                     // 自動再生がブロックされた場合などのエラー処理
-                    console.log('Audio playback prevented or failed:', error);
+                    console.log('Audio playback prevented or failed:', error); // エラー発生時のログ
                     // エラーが発生しても、audioPlayedはtrueにならないため、他のイベントでの再生を試みる可能性がある
                 });
+            } else {
+                console.log('Audio already played or attempt in progress.'); // 既に再生済みまたは試行中の場合のログ
             }
         }
 
         // 音楽再生トリガーとなるイベントリスナーを削除する関数
         function removeInteractionListeners() {
-            document.body.removeEventListener('click', tryPlayAudio);
-            // スクロールイベントリスナーは window から削除
-            window.removeEventListener('scroll', tryPlayAudio);
-            document.body.removeEventListener('touchstart', tryPlayAudio);
-            document.body.removeEventListener('mousemove', tryPlayAudio);
-             // 必要に応じてここに追加した他のイベントも削除
+            document.body.removeEventListener('click', handleInteraction);
+            window.removeEventListener('scroll', handleInteraction);
+            document.body.removeEventListener('touchstart', handleInteraction);
+            document.body.removeEventListener('mousemove', handleInteraction);
+            console.log('Interaction listeners removed.'); // リスナー削除時のログ
+        }
+
+        // 各インタラクションイベントが発生したときに呼び出される関数
+        function handleInteraction(event) {
+            console.log('Interaction detected:', event.type); // 発生したイベントのタイプをログ
+            tryPlayAudio();
         }
 
         // ページ上の様々なユーザーインタラクションを検知するためのイベントリスナーを追加
-        // これらのイベントのいずれかが最初に発生したときにtryPlayAudioが実行される
-        document.body.addEventListener('click', tryPlayAudio);
-        // スクロールイベントは body ではなく window に対してリッスンするのが一般的です
-        window.addEventListener('scroll', tryPlayAudio);
-        document.body.addEventListener('touchstart', tryPlayAudio);
-        document.body.addEventListener('mousemove', tryPlayAudio);
-        // 他にもユーザーインタラクションとなりうるイベントを追加可能ですが、過剰な検知はパフォーマンスに影響する場合もあります。
-        // 例: 'keydown', 'touchend', 'mousedown' など
+        // これらのイベントのいずれかが最初に発生したときにhandleInteractionが実行される
+        document.body.addEventListener('click', handleInteraction);
+        window.addEventListener('scroll', handleInteraction); // スクロールイベントは window に対してリッスン
+        document.body.addEventListener('touchstart', handleInteraction);
+        document.body.addEventListener('mousemove', handleInteraction); // マウス移動イベント
+
+        console.log('Interaction listeners added.'); // リスナー追加時のログ
 
     </script>
 
