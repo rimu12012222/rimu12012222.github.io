@@ -66,27 +66,28 @@
 
         // 音楽再生トリガーとなるイベントリスナーを削除する関数
         function removeInteractionListeners() {
-            document.body.removeEventListener('click', handleInteraction);
-            window.removeEventListener('scroll', handleInteraction);
-            document.body.removeEventListener('touchstart', handleInteraction);
-            document.body.removeEventListener('mousemove', handleInteraction);
+            // イベントリスナーを document から削除
+            document.removeEventListener('click', handleInteraction);
+            document.removeEventListener('scroll', handleInteraction);
+            document.removeEventListener('touchstart', handleInteraction);
+            document.removeEventListener('mousemove', handleInteraction);
             console.log('Interaction listeners removed.'); // リスナー削除時のログ
         }
 
         // 各インタラクションイベントが発生したときに呼び出される関数
         function handleInteraction(event) {
-            console.log('Interaction detected:', event.type); // 発生したイベントのタイプをログ
+            console.log('Interaction detected on document:', event.type); // 発生したイベントのタイプをログ
             tryPlayAudio();
         }
 
-        // ページ上の様々なユーザーインタラクションを検知するためのイベントリスナーを追加
+        // ページ上の様々なユーザーインタラクションを検知するためのイベントリスナーを document に追加
         // これらのイベントのいずれかが最初に発生したときにhandleInteractionが実行される
-        document.body.addEventListener('click', handleInteraction);
-        window.addEventListener('scroll', handleInteraction); // スクロールイベントは window に対してリッスン
-        document.body.addEventListener('touchstart', handleInteraction);
-        document.body.addEventListener('mousemove', handleInteraction); // マウス移動イベント
+        document.addEventListener('click', handleInteraction);
+        document.addEventListener('scroll', handleInteraction); // scroll イベントを document にリッスン
+        document.addEventListener('touchstart', handleInteraction);
+        document.addEventListener('mousemove', handleInteraction); // mousemove イベントを document にリッスン
 
-        console.log('Interaction listeners added.'); // リスナー追加時のログ
+        console.log('Interaction listeners added to document.'); // リスナー追加時のログ
 
     </script>
 
