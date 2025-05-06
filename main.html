@@ -1,69 +1,64 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>スプラトゥーン チートコード</title>
-    <meta property="og:title" content="spl23">
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://rimu12012222.github.io/spl23.github.io/"/>
-    <meta property="og:image" content="image/ogp-image.png"/> <meta property="og:site_name" content="splatoon2 3 cheat-code"/>
-    <meta property="og:description" content="デザインを昔あったたかはるさんのサイトに勝手に寄せさせてもらってます、感謝。"/>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.png"/>
-    <link rel="apple-touch-icon" href="image/apple-touch-icon.png"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>スプラトゥーン チートコード</title>
+    <meta property="og:title" content="spl23">
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://rimu12012222.github.io/spl23.github.io/"/>
+    <meta property="og:image" content="image/ogp-image.png"/>
+    <meta property="og:site_name" content="splatoon2 3 cheat-code"/>
+    <meta property="og:description" content="デザインを昔あったたかはるさんのサイトに勝手に寄せさせてもらってます、感謝。"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png"/>
+    <link rel="apple-touch-icon" href="image/apple-touch-icon.png"/>
 </head>
 <body>
-    <div class="container">
-
-        <h1>スプラトゥーン チートコード</h1>
-
-        <audio id="bgm" src="music/bgm.mp3" loop></audio>
-
-        <h1>スプラトゥーン2</h1>
-        <h2>・Testfire <a href="pchtxt/Testfire.pchtxt" target="_blank">ダウンロード</a></h2>
-        <h2>・3.1.0 <a href="pchtxt/3.1.0.pchtxt" target="_blank">ダウンロード</a></h2>
-        <h2>・5.5.1 <a href="pchtxt/5.5.1.pchtxt" target="_blank">ダウンロード</a></h2>
-
-        <h1>スプラトゥーン3</h1>
-        <h2>・World Premiere <a href="pchtxt/WorldPremire.pchtxt" target="_blank">ダウンロード</a></h2>
-        <h2>・1.0.0 <a href="pchtxt/1.0.0.pchtxt" target="_blank">ダウンロード</a></h2>
-        <h2>・9.3.0 <a href="pchtxt/9.3.0.pchtxt" target="_blank">ダウンロード</a></h2>
-
-<h2> Discord サーバー(立てるかは未定) <a href="https://discord.gg/madanaiyo" target="_blank">参加</a></h2>
-        <h1>協力者などいろいろ</h1>
-        <h2>・<a href="https://x.com/xv4dvr7?t=-zlaYxkZv2lSU3AOrePTRA&s=09" target="_blank">xxy73</a></h2>
-    </div>
-    <script>
-        var audioPlayed = false; 
-        function tryPlayAudio() {
-            if (!audioPlayed) {
-                var audio = document.getElementById('bgm');
-                audio.play().then(function() {
-                    audioPlayed = true;
-                    removeInteractionListeners();
-                }).catch(function(error) {
-                    console.log('Audio playback prevented or failed:', error);
-                });
-            } else {
-console.log('Audio already played or attempt in progress.');
-            }
-
-        }
-        function removeInteractionListeners() {
-            document.removeEventListener('click', handleInteraction);
-            document.removeEventListener('scroll', handleInteraction);
-            document.removeEventListener('touchstart', handleInteraction);
-            document.removeEventListener('mousemove', handleInteraction);
-        }
-
-        function handleInteraction(event) {
-            tryPlayAudio();
-        }
-        document.addEventListener('click', handleInteraction);
-        document.addEventListener('touchstart', handleInteraction);
-
-    </script>
-
+    <div class="container">
+        <h1>スプラトゥーン チートコード</h1>
+        <audio id="bgm" src="music/bgm.mp3" loop></audio>
+        <h1>スプラトゥーン2</h1>
+        <h2>・Testfire <a href="pchtxt/Testfire.pchtxt" target="_blank">ダウンロード</a></h2>
+        <h2>・3.1.0 <a href="pchtxt/3.1.0.pchtxt" target="_blank">ダウンロード</a></h2>
+        <h2>・5.5.1 <a href="pchtxt/5.5.1.pchtxt" target="_blank">ダウンロード</a></h2>
+        <h1>スプラトゥーン3</h1>
+        <h2>・World Premiere <a href="pchtxt/WorldPremire.pchtxt" target="_blank">ダウンロード</a></h2>
+        <h2>・1.0.0 <a href="pchtxt/1.0.0.pchtxt" target="_blank">ダウンロード</a></h2>
+        <h2>・9.3.0 <a href="pchtxt/9.3.0.pchtxt" target="_blank">ダウンロード</a></h2>
+        <h2> Discord サーバー(立てるかは未定) <a href="https://discord.gg/madanaiyo" target="_blank">参加</a></h2>
+        <h1>協力者などいろいろ</h1>
+        <h2>・<a href="https://x.com/xv4dvr7?t=-zlaYxkZv2lSU3AOrePTRA&s=09" target="_blank">xxy73</a></h2>
+    </div>
+    <script>
+        var audioPlayed = false;
+        function tryPlayAudio() {
+            if (!audioPlayed) {
+                var audio = document.getElementById('bgm');
+                if (audio) {
+                    audio.play().then(function() {
+                        audioPlayed = true;
+                        removeInteractionListeners();
+                    }).catch(function(error) {
+                    });
+                }
+            }
+        }
+        function removeInteractionListeners() {
+            document.removeEventListener('click', handleInteraction);
+            document.removeEventListener('scroll', handleInteraction);
+            document.removeEventListener('touchstart', handleInteraction);
+            document.removeEventListener('mousemove', handleInteraction);
+        }
+        function handleInteraction(event) {
+            tryPlayAudio();
+        }
+        // Attempt autoplay on page load using permission from previous page interaction
+        tryPlayAudio();
+        document.addEventListener('click', handleInteraction);
+        document.addEventListener('scroll', handleInteraction);
+        document.addEventListener('touchstart', handleInteraction);
+        document.addEventListener('mousemove', handleInteraction);
+    </script>
 </body>
 </html>
