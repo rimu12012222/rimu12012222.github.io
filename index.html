@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>クリックして開始</title>
+
+    <link rel="preload" href="style.css" as="style">
+
+    <link rel="preload" href="images/background.jpg" as="image">
+
+    <link rel="preload" href="music/bgm.mp3" as="audio">
+
+    <link rel="preload" href="font/Splatfont.ttf" as="font" crossorigin>
     <style>
         /* body全体を使い、要素を中央に配置 */
         body {
@@ -44,21 +52,15 @@
         }
 
 
-        /* Sahitya-Regular.ttf フォントの定義 */
-        @font-face {
-            font-family: 'SahityaRegular'; /* フォント名を 'SahityaRegular' に設定 */
-            /* ★ここに、あなたが持っている Sahitya-Regular.ttf のフォントファイルへのパスを指定してください★ */
-            src: url('font/Sahitya-Regular.ttf') format('truetype'); /* パスとフォーマットを設定 */
-            /* 複数の形式（woff2, woff, ttfなど）を指定すると、より多くのブラウザで表示できます */
-
-            font-weight: normal;
-            font-style: normal;
-        }
-
-
         /* クリックを促す文字のスタイル */
         .click-prompt {
-            font-family: 'SahityaRegular', sans-serif; /* SahityaRegular フォントを使用 */
+            /* 現在使用しているフォントに合わせて font-family を設定してください */
+            /* 例: font-family: 'DeRotterdamDemo-Regulare', sans-serif; */
+            /* 例: font-family: 'Splatfont', sans-serif; */
+            /* 例: font-family: 'BenthamRegular', sans-serif; */
+            /* 例: font-family: 'SahityaRegular', sans-serif; */
+            font-family: sans-serif; /* フォントが読み込めなかった場合のFallback */
+
             font-size: 2.5em; /* 文字サイズ */
             color: #88ccff; /* 薄い水色 */
             text-align: center;
@@ -67,8 +69,7 @@
             /* -webkit-text-stroke: ... */
             /* text-stroke: ... */
 
-            /* 文字の太さや凝縮はフォントファイル（Sahitya-Regular.ttf）のデザインに依存します */
-            /* font-weight: normal; */ /* Sahitya-Regular自体のウェイトを使用 */
+            /* 文字の太さや凝縮はフォントファイルのデザインに依存します */
 
             position: relative;
             z-index: 2;
