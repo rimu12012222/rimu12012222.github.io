@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>クリックして開始</title>
 
-    <link rel="preload" href="style.css" as="style">
-
-    <link rel="preload" href="images/background.jpg" as="image">
-
-    <link rel="preload" href="music/bgm.mp3" as="audio">
-
     <style>
         /* body全体を使い、要素を中央に配置 */
         body {
@@ -89,56 +83,19 @@
         click
     </div>
 
-    <audio id="silent-audio" src="music/silent.mp3" preload="auto"></audio> <script>
-        var silentAudioPlayed = false; // 無音オーディオが再生されたかを示すフラグ
-
-        // メインページへの遷移と、スマホ向けオーディオアンロックを試みる関数
+    <script>
+        // メインページへの遷移を行う関数
         function goToMainPage() {
-            // スマホ向け対策：ユーザー操作をトリガーに無音オーディオを再生し、オーディオ再生を「アンロック」する
-            // まだ無音オーディオを再生していなければ試みる
-            if (!silentAudioPlayed) {
-                var silentAudio = document.getElementById('silent-audio');
-                // play() は Promise を返すので、then() や catch() で成功/失敗を検知できます
-                var playPromise = silentAudio.play();
-
-                if (playPromise !== undefined) {
-                    playPromise.then(function() {
-                        console.log('Silent audio played successfully. Attempting to unlock audio.');
-                        silentAudioPlayed = true;
-
-                        // 無音再生に成功したら、少し待ってからメインページへ遷移
-                        // 少し待つことで、ブラウザがオーディオ再生を許可した状態になるのを期待します
-                        setTimeout(function() {
-                            console.log('Redirecting to main page after silent audio.');
-                            window.location.href = 'main.html'; // main.html にリダイレクト
-                        }, 100); // 例: 100ミリ秒待つ（この時間は調整してみてください。短すぎると効果がない場合があります）
-
-                    }).catch(function(error) {
-                        console.log('Silent audio playback prevented or failed:', error);
-                        // 無音再生が失敗した場合でも、そのままメインページへ遷移を試みる
-                         console.log('Redirecting to main page after silent audio failure.');
-                        window.location.href = 'main.html'; // main.html にリダイレクト
-                    });
-                } else {
-                    // play() が Promise を返さない場合（古いブラウザなど）、すぐにリダイレクト
-                    console.log('play() did not return a Promise. Redirecting directly.');
-                    window.location.href = 'main.html'; // main.html にリダイレクト
-                }
-
-            } else {
-                // 無音オーディオが既に再生されていれば、そのままメインページへ遷移
-                 console.log('Silent audio already played. Redirecting to main page.');
-                 window.location.href = 'main.html'; // main.html にリダイレクト
-            }
+            console.log('Redirecting to main page.');
+             // メインのページファイル名にリダイレクト
+            window.location.href = 'main.html'; // main.html にリダイレクト
 
              // イベントリスナーを一度削除して、複数回呼ばれないようにする
-             // リダイレクト処理の直前に削除
             removeInteractionListeners();
         }
 
          // イベントリスナーを削除する関数
         function removeInteractionListeners() {
-            // body要素に対するリスナーを削除
             document.body.removeEventListener('click', handleInteraction);
             document.body.removeEventListener('touchstart', handleInteraction);
             console.log('Interaction listeners removed from body.');
@@ -152,7 +109,7 @@
              // 意図しない副作用がある場合もあるため、ここでは呼び出しません。
              // event.preventDefault(); // 必要であればコメント解除して試してみてください
 
-             // ユーザー操作を検知したら、メインページ遷移とオーディオアンロック処理に進む
+             // ユーザー操作を検知したら、メインページ遷移処理に進む
              goToMainPage();
         }
 
