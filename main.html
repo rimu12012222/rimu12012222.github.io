@@ -4,20 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>スプラトゥーン チートコード</title>
-
     <meta property="og:title" content="spl23">
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://rimu12012222.github.io/spl23.github.io/"/>
     <meta property="og:image" content="image/ogp-image.png"/> <meta property="og:site_name" content="splatoon2 3 cheat-code"/>
     <meta property="og:description" content="デザインを昔あったたかはるさんのサイトに勝手に寄せさせてもらってます、感謝。"/>
-
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.png"/>
     <link rel="apple-touch-icon" href="image/apple-touch-icon.png"/>
 </head>
 <body>
-
     <div class="container">
+
         <h1>スプラトゥーン チートコード</h1>
 
         <audio id="bgm" src="music/bgm.mp3" loop></audio>
@@ -32,47 +30,36 @@
         <h2>・1.0.0 <a href="pchtxt/1.0.0.pchtxt" target="_blank">ダウンロード</a></h2>
         <h2>・9.3.0 <a href="pchtxt/9.3.0.pchtxt" target="_blank">ダウンロード</a></h2>
 
-        <h2> Discord サーバー(立てるかは未定) <a href="https://discord.gg/madanaiyo" target="_blank">参加</a></h2>
-
+<h2> Discord サーバー(立てるかは未定) <a href="https://discord.gg/madanaiyo" target="_blank">参加</a></h2>
         <h1>協力者などいろいろ</h1>
         <h2>・<a href="https://x.com/xv4dvr7?t=-zlaYxkZv2lSU3AOrePTRA&s=09" target="_blank">xxy73</a></h2>
-
     </div>
-
     <script>
-        var audioPlayed = false;
-
-        // 音楽再生を試みる関数
+        var audioPlayed = false; 
         function tryPlayAudio() {
-            // まだ再生されていない場合のみ実行
             if (!audioPlayed) {
                 var audio = document.getElementById('bgm');
-                // audio 要素が存在するか確認
-                if (audio) { // audio要素が存在する場合のみ play() を試みる
-                    audio.play().then(function() {
-                        // 再生に成功した場合
-                        audioPlayed = true; // フラグを立てる
-                        // 再生開始に成功したら、不要になったイベントリスナーを全て削除する
-                        removeInteractionListeners();
-                    }).catch(function(error) {
-                        // 自動再生がブロックされた場合などのエラー処理
-                        // エラー発生時は audioPlayed は false のままなので、他のイベントで再生を試みます
-                    });
-                }
+                audio.play().then(function() {
+                    audioPlayed = true;
+                    removeInteractionListeners();
+                }).catch(function(error) {
+                    console.log('Audio playback prevented or failed:', error);
+                });
+            } else {
+console.log('Audio already played or attempt in progress.');
             }
-        }
 
-        // 音楽再生トリガーとなるイベントリスナーを削除する関数
+        }
         function removeInteractionListeners() {
-            // イベントリスナーを document から削除
             document.removeEventListener('click', handleInteraction);
+            document.removeEventListener('scroll', handleInteraction);
             document.removeEventListener('touchstart', handleInteraction);
+            document.removeEventListener('mousemove', handleInteraction);
         }
 
         function handleInteraction(event) {
             tryPlayAudio();
         }
-
         document.addEventListener('click', handleInteraction);
         document.addEventListener('touchstart', handleInteraction);
 
