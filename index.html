@@ -62,13 +62,11 @@
         }
         function removeInteractionListeners() {
             document.body.removeEventListener('click', handleInteraction);
-            document.body.removeEventListener('touchstart', handleInteraction);
         }
         function handleInteraction(event) {
             goToMainPage();
         }
         document.body.addEventListener('click', handleInteraction);
-        document.body.addEventListener('touchstart', handleInteraction);
     </script>
 </body>
 </html>

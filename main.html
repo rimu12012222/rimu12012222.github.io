@@ -46,9 +46,6 @@
         }
         function removeInteractionListeners() {
             document.removeEventListener('click', handleInteraction);
-            document.removeEventListener('scroll', handleInteraction);
-            document.removeEventListener('touchstart', handleInteraction);
-            document.removeEventListener('mousemove', handleInteraction);
         }
         function handleInteraction(event) {
             tryPlayAudio();
@@ -56,9 +53,6 @@
         // Attempt autoplay on page load using permission from previous page interaction
         tryPlayAudio();
         document.addEventListener('click', handleInteraction);
-        document.addEventListener('scroll', handleInteraction);
-        document.addEventListener('touchstart', handleInteraction);
-        document.addEventListener('mousemove', handleInteraction);
     </script>
 </body>
 </html>
